@@ -12,7 +12,8 @@ pauser.addEventListener("click", pause)
 plus_button.addEventListener("click", plus)
 minus_button.addEventListener("click", minus)
 like_button.addEventListener("click", like)
-counter.addEventListener("mouseover", destroy)
+counter.addEventListener("mouseover", create)
+counter.addEventListener("mouseleave", destroy)
 
 const like_count = {}
 
@@ -103,10 +104,20 @@ interval()
     }
   }
 
-  function destroy(){
-    photo = document.createElement("img")
-    img.src =
+  function create(){
 
+    const photo = document.createElement("img")
+    photo.src ="https://s3.amazonaws.com/petfinder-us-east-1-petimages-prod/organization-photos/27779/27779-1.jpg?bust=2018-04-22+17%3A29%3A55"
+    photo.width = "500"
+    photo.height = "500"
+    photo.id = "photo"
+    comments.appendChild(photo)
+  }
+
+  function destroy(){
+    if (photo){
+      photo.remove()
+    }
   }
 
 
